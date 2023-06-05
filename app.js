@@ -3,13 +3,36 @@ const express = require('express');
 const morgan = require('morgan');
 const logger = require('./config/logger');
 const {version} = require('./package.json');
+const path = require('path');
 
 const app = express();
+
+// swagger
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerui = require("swagger-ui-express")
+const options = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "share_house",
+      version,
+      description: `
+        line1
+        line2
+        line3...
+      `,
+    },
+  },
+  apis: [path.join(__dirname, './routes/*.js')],
+};
+// 定义swagger 访问的路由
+const swaggerSpec = swaggerJsdoc(options);
+app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
 
 // # cors
 const cors = require('cors'); //引入cors库
 // 因为cors是中间件，因此我们要先调用app.use装载中间件，以便后面我们的请求都能够经过cors到达不同的路由
-app.use(cors()); 
+app.use(cors());
 
 if( 'dev' === process.env.NODE_ENV){
   //开发环境
@@ -55,28 +78,7 @@ db.sequelize.sync()
 //   console.log("Drop and re-sync db.");
 // });
 
-// swagger
-const swaggerJsdoc = require("swagger-jsdoc");
-const swaggerui = require("swagger-ui-express")
-const options = {
-  definition: {
-    openapi: "3.0.1",
-    info: {
-      title: "share_house",
-      version,
-      description: `
-        line1
-        line2
-        line3...
-      `,
-    },
-  },
-  apis: [path.join(__dirname, '/routers/*.js')],
-};
 
-// 定义swagger 访问的路由
-const swaggerSpec = swaggerJsdoc(options);
-app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
 
 
 module.exports = app;

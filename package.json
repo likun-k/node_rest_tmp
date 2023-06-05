@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon --delay 1000 ./bin/www",
+    "dev": "cross-env NODE_ENV=dev nodemon --delay start ./bin/www ",
     "start": "cross-env NODE_ENV=production pm2 start ./bin/www --watch ",
     "pm2": "pm2 list",
     "stop": "pm2 stop all"

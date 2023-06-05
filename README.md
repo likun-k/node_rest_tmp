@@ -8,14 +8,15 @@ a resfult api server
 - 统一的返回格式
 - sequelize
 - mysql
+- api： swagger-jsdoc + swagger-ui-express
+- cors 跨域
+
 
 ### TODO
 - jwt + 权限校验
 - xss
 - validation ： Joi请求数据验证
-- api： swagger-jsdoc + swagger-ui-express
 - Security: helmet http安全性
-- cors 跨域
 - 分页
 
 ## run
