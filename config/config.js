@@ -1,5 +1,6 @@
 const env = process.env.NODE_ENV
 
+// tencent rds 测试 ，截止 2023-07月
 const dev = {
   HOST: "sh-cynosdbmysql-grp-05aa7gl2.sql.tencentcdb.com",
   PORT: "20789",
