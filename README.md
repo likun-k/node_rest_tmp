@@ -18,5 +18,5 @@ a resfult api server
 - 分页
 
 ## run
-  npm install 
+  npm install &
   npm run dev
