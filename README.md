@@ -11,12 +11,10 @@ a resfult api server
 - api： swagger-jsdoc + swagger-ui-express
 - cors 跨域
 
-
-### TODO
+* Maybe this is enough? 
+### TODO 
 - jwt + 权限校验
-- xss
 - validation ： Joi请求数据验证
-- Security: helmet http安全性
 - 分页
 
 ## run
