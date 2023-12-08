@@ -15,7 +15,7 @@ a resfult api server
 ### TODO 
 - jwt + 权限校验
 - validation ： Joi请求数据验证
-- 分页
+
 
 ## run
   npm install &
